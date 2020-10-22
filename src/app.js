@@ -2,19 +2,27 @@ import 'alpinejs'
 
 window.data = function () {
 	return {
+		filter: 'all',
 		todos: [],
 		newTodoTitle: '',
 		get activeTodo() {
 			return this.todos.filter(todo => todo.completed !== true);
 		},
-		get activeTodosCount(){
+		get activeTodosCount() {
 			return this.activeTodo.length
 		},
 		get completedTodo() {
 			return this.todos.filter(todo => todo.completed === true);
 		},
-		get completedTodosCount(){
+		get completedTodosCount() {
 			return this.activeTodo.length
+		},
+		get filteredTodos() {
+			return {
+				'all':this.todos,
+				'active':this.activeTodo,
+				'completed':this.completedTodo,
+			}[this.filter]
 		},
 		addTodo() {
 			if (this.newTodoTitle.trim()) {
