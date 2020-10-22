@@ -14,13 +14,19 @@ window.data = function () {
 				this.newTodoTitle = ''
 			}
 		},
-		deleteTodo(todo){
+		deleteTodo(todo) {
 			this.todos.splice(
-				this.todos.indexOf(todo),1
+				this.todos.indexOf(todo), 1
 			)
 		},
-		toggleCompleted(todo){
+		toggleCompleted(todo) {
 			todo.completed = !todo.completed
 		},
+		get activeTodo() {
+			return this.todos.filter(todo => todo.completed !== true);
+		},
+		get activeTodosCount(){
+			return this.activeTodo.length
+		}
 	}
 }
