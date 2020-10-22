@@ -18,6 +18,9 @@ window.data = function () {
 			this.todos.splice(
 				this.todos.indexOf(todo),1
 			)
-		}
+		},
+		toggleCompleted(todo){
+			todo.completed = !todo.completed
+		},
 	}
 }
