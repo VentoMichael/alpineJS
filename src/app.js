@@ -4,6 +4,18 @@ window.data = function () {
 	return {
 		todos: [],
 		newTodoTitle: '',
+		get activeTodo() {
+			return this.todos.filter(todo => todo.completed !== true);
+		},
+		get activeTodosCount(){
+			return this.activeTodo.length
+		},
+		get completedTodo() {
+			return this.todos.filter(todo => todo.completed === true);
+		},
+		get completedTodosCount(){
+			return this.activeTodo.length
+		},
 		addTodo() {
 			if (this.newTodoTitle.trim()) {
 				this.todos.push({
@@ -21,12 +33,6 @@ window.data = function () {
 		},
 		toggleCompleted(todo) {
 			todo.completed = !todo.completed
-		},
-		get activeTodo() {
-			return this.todos.filter(todo => todo.completed !== true);
-		},
-		get activeTodosCount(){
-			return this.activeTodo.length
 		}
 	}
 }
