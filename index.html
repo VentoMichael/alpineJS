@@ -16,7 +16,13 @@
 			-->
 			<header class="header">
 				<h1>todos</h1>
-				<input class="new-todo" placeholder="What needs to be done?" autofocus>
+				<span x-text="newTodoTitle"></span>
+				<input
+						@keyup.enter="addTodo()"
+						x-model="newTodoTitle"
+						class="new-todo"
+						placeholder="What needs to be done?"
+						autofocus>
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->
 			<section x-show="todos.length"
