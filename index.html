@@ -53,17 +53,17 @@
 		<ul class="filters">
 			<li>
 				<a @click.prevent="filter='all'"
-						class="selected" href="#/">All</a>
+						:class="{selected:filter === 'all'}" href="#/">All</a>
 			</li>
 			<li>
-				<a @click.prevent="filter='active'" href="#/active">Active</a>
+				<a @click.prevent="filter='active'" :class="{selected:filter === 'active'}" href="#/active">Active</a>
 			</li>
 			<li>
-				<a @click.prevent="filter='completed'" href="#/completed">Completed</a>
+				<a @click.prevent="filter='completed'" :class="{selected:filter === 'completed'}" href="#/completed">Completed</a>
 			</li>
 		</ul>
 		<!-- Hidden if no completed items are left ↓ -->
-		<button class="clear-completed">Clear completed</button>
+		<button @click="todos = activeTodo" x-show="completedTodosCount" class="clear-completed">Clear completed</button>
 	</footer>
 </section>
 <footer class="info">

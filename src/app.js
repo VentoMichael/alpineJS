@@ -15,7 +15,7 @@ window.data = function () {
 			return this.todos.filter(todo => todo.completed === true);
 		},
 		get completedTodosCount() {
-			return this.activeTodo.length
+			return this.completedTodo.length
 		},
 		get filteredTodos() {
 			return {
