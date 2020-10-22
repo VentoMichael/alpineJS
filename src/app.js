@@ -13,6 +13,11 @@ window.data = function () {
 				})
 				this.newTodoTitle = ''
 			}
+		},
+		deleteTodo(todo){
+			this.todos.splice(
+				this.todos.indexOf(todo),1
+			)
 		}
 	}
 }

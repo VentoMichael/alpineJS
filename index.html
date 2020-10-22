@@ -37,7 +37,8 @@
 					<div class="view">
 						<input class="toggle" type="checkbox">
 						<label x-text="todo.title"></label>
-						<button class="destroy"></button>
+						<button @click="deleteTodo(todo)"
+								class="destroy"></button>
 					</div>
 					<input class="edit" value="Rule the web">
 				</li>
